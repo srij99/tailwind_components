@@ -4,12 +4,17 @@ import Button from "@/components/Button";
 import SearchBar from "@/components/SearchBar";
 import { MoreVertical } from "lucide-react";
 import IconMenu from "@/components/IconMenu";
+import Dropdown from "@/components/Dropdown";
 
 export default function Home() {
   const [query, setQuery] = useState("");
 
   const handleSearch = () => {
     alert(`Searching for:${query}`);
+  };
+
+  const handleDropdownSelect = (value: string) => {
+    alert(`Selected: ${value}`);
   };
   return (
     <>
@@ -48,6 +53,14 @@ export default function Home() {
           ]}
         />
       </div>
+
+      <Dropdown
+        options={["Option 1", "Option 2", "Option 3"]}
+        onSelect={handleDropdownSelect}
+        placeholder="Choose an option"
+        color="#f0000c"
+        textColor="#03e6ff"
+      />
     </>
   );
 }
